@@ -4,9 +4,15 @@
   <meta charset="UTF-8" />
   <title>Контакты</title>
   <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <style>
+  body {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
   .content {
     max-width: 700px;
     margin: 120px auto 0 auto;
@@ -16,7 +22,6 @@
   .content p {
     margin-bottom: 1.5em;
     font-size: 18px;
-    line-height: 1.7;
   }
 
   .content h1 {
@@ -33,19 +38,16 @@
     align-items: center;
     gap: 40px;
     font-size: 18px;
-    flex-wrap: wrap; /* allows links to wrap if screen is too small */
+    flex-wrap: wrap; 
   }
 
-  /* =========================
-     MOBILE ADJUSTMENTS
-  ========================= */
+  /* MOBILE */
   @media (max-width: 800px) {
-
     .nav {
-      flex-direction: row; /* keep horizontal */
-      gap: 24px;           /* slightly smaller gap for mobile */
-      font-size: 20px;     /* slightly bigger font */
-      height: auto;        /* auto height for wrapping if needed */
+      flex-direction: row; 
+      gap: 24px;           
+      font-size: 20px;     
+      height: auto;        
       padding: 12px 0;
     }
 
@@ -63,6 +65,7 @@
     }
   }
 </style>
+
 
 
 
