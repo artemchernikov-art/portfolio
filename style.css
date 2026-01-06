@@ -1,0 +1,259 @@
+/* =========================
+   RESET
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   BASE
+========================= */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f4f1ec;
+  color: #111;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   NAV
+========================= */
+.nav {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+/* =========================
+   ABOUT PAGE
+========================= */
+.about {
+  min-height: calc(100vh - 80px);
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(360px, 1fr);
+  gap: 64px;
+  padding: 80px 10vw;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  object-fit: contain;
+  justify-self: center;
+}
+
+.about-text {
+  max-width: 520px;
+}
+
+.artist-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   GALLERY PAGE
+========================= */
+.gallery {
+  min-height: calc(100vh - 80px);
+  padding: 60px 8vw 80px;
+}
+
+.gallery-main {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) 420px;
+  gap: 56px;
+  align-items: center;
+}
+
+.gallery-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* IMAGE — unchanged */
+.gallery-frame img {
+  width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  display: block;
+}
+
+.gallery-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 420px;
+}
+
+.gallery-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+}
+
+/* =========================
+   CONTROLS (DESKTOP)
+========================= */
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 42px;
+  font-weight: 900;
+  cursor: pointer;
+  color: #111;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.gallery-counter {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  transform: translateY(5px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+.desktop {
+  display: flex;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 800px) {
+
+  /* ABOUT */
+  .about {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 24px 60px;
+    gap: 24px;
+  }
+
+  .artist-name {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .about img {
+    max-height: 45vh;
+  }
+
+  /* GALLERY */
+  .gallery {
+    padding: 40px 24px 60px;
+  }
+
+  .gallery-main {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
+  }
+
+  .gallery-frame img {
+    max-height: 50vh;
+  }
+
+  .gallery-counter.mobile {
+    margin-top: 14px;
+    font-size: 15px;
+    opacity: 0.7;
+    transform: none;
+  }
+
+  /* =========================
+     ✅ MOBILE ARROWS — FINAL FIX
+     Left | Image | Right
+  ========================= */
+
+  .fixed-arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  /* CENTER arrows in side gutters */
+  padding-left: clamp(24px, 8vw, 64px);
+  padding-right: clamp(24px, 8vw, 64px);
+
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+  .fixed-arrows .arrow {
+    pointer-events: auto;
+    font-size: 34px;
+  }
+
+  .gallery-text h2 {
+    text-align: center;
+  }
+}
+
+p {
+  color: rgba(17, 17, 17, 0.85);
+}
+
+h1, h2 {
+  letter-spacing: 0.02em;
+}
+
+body {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.arrow {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.arrow:hover {
+  opacity: 1;
+}
+
+
+
