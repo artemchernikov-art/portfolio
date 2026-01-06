@@ -1,3 +1,4 @@
+
 /* =========================
    RESET
 ========================= */
@@ -187,8 +188,9 @@ a {
     display: flex;
   }
 
-  .gallery-frame img {
-    max-height: 50vh;
+  .gallery-frame {
+    position: relative;
+    padding: 0 64px; /* ⬅️ THIS creates arrow space */
   }
 
   .gallery-counter.mobile {
@@ -203,26 +205,20 @@ a {
      Left | Image | Right
   ========================= */
 
-  .fixed-arrows {
+ .fixed-arrows {
   position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
+  inset: 0;
   display: flex;
   justify-content: space-between;
-
-  /* CENTER arrows in side gutters */
-  padding-left: clamp(24px, 8vw, 64px);
-  padding-right: clamp(24px, 8vw, 64px);
-
-  transform: translateY(-50%);
+  align-items: center;
   pointer-events: none;
 }
 
-  .fixed-arrows .arrow {
-    pointer-events: auto;
-    font-size: 34px;
-  }
+.fixed-arrows .arrow {
+  pointer-events: auto;
+  font-size: 34px;
+}
+
 
   .gallery-text h2 {
     text-align: center;
