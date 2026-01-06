@@ -28,9 +28,12 @@
     <div class="gallery-frame">
       <img id="galleryImage" src="images/painting1.jpg" alt="Oil painting">
 
-      <div class="gallery-counter mobile" id="counterMobile">
-        1 / 15
-      </div>
+      <div class="gallery-controls mobile mobile-bottom-controls">
+		<button class="arrow" onclick="prevImage()">←</button>
+		<span class="gallery-counter" id="counterMobile">1 / 15</span>
+		<button class="arrow" onclick="nextImage()">→</button>
+	</div>
+
     </div>
 
     <div class="gallery-text">
@@ -53,10 +56,7 @@
 
 </section>
 
-<div class="gallery-controls mobile fixed-arrows">
-  <button class="arrow" onclick="prevImage()">←</button>
-  <button class="arrow" onclick="nextImage()">→</button>
-</div>
+
 
 <script>
 const works = [
