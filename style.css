@@ -15,6 +15,7 @@ body {
   background: #f4f1ec;
   color: #111;
   line-height: 1.7;
+  font-size: 16px;
 }
 
 a {
@@ -31,6 +32,7 @@ a {
   justify-content: center;
   align-items: center;
   gap: 40px;
+  font-size: 18px;
 }
 
 /* =========================
@@ -152,6 +154,16 @@ a {
 @media (max-width: 800px) {
 	
 	/* Mobile bottom controls (arrows below the image) */
+	
+.nav {
+    flex-direction: row;
+    gap: 24px;
+    height: auto;
+    padding: 12px 0;
+	font-size: 16px;
+    /* No font-size here to keep it at 16px */
+}
+  
 .mobile-bottom-controls {
   display: flex;
   justify-content: center;
