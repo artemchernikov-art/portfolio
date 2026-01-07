@@ -16,11 +16,25 @@ body {
   color: #111;
   line-height: 1.7;
   font-size: 16px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+p {
+  color: rgba(17, 17, 17, 0.85);
+}
+
+h1, h2 {
+  letter-spacing: 0.02em;
 }
 
 /* =========================
@@ -33,6 +47,23 @@ a {
   align-items: center;
   gap: 40px;
   font-size: 18px;
+}
+
+.nav a:hover {
+  color: #555;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+  color: rgba(17, 17, 17, 0.6);
+  margin-top: auto;
 }
 
 /* =========================
@@ -87,7 +118,6 @@ a {
   align-items: center;
 }
 
-/* IMAGE — unchanged */
 .gallery-frame img {
   width: 100%;
   max-height: 65vh;
@@ -108,7 +138,7 @@ a {
 }
 
 /* =========================
-   CONTROLS (DESKTOP)
+   CONTROLS
 ========================= */
 .gallery-controls {
   display: flex;
@@ -125,8 +155,12 @@ a {
   cursor: pointer;
   color: #111;
   line-height: 1;
-  display: flex;
-  align-items: center;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.arrow:hover {
+  opacity: 1;
 }
 
 .gallery-counter {
@@ -135,60 +169,68 @@ a {
   letter-spacing: 0.08em;
   opacity: 0.8;
   line-height: 1;
-  display: flex;
-  align-items: center;
   transform: translateY(5px);
+}
+
+/* =========================
+   CONTACT PAGE
+========================= */
+.content {
+  max-width: 700px;
+  margin: 120px auto 0 auto;
+  padding: 0 20px;
+}
+
+.content h1 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-size: 36px;
+}
+
+.content p {
+  margin-bottom: 1.5em;
+  font-size: 18px;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
-.desktop {
-  display: flex;
-}
-
-.mobile {
-  display: none;
-}
+.desktop { display: flex; }
+.mobile { display: none; }
 
 @media (max-width: 800px) {
-	
-	/* Mobile bottom controls (arrows below the image) */
-	
-.nav {
+  .nav {
     flex-direction: row;
     gap: 24px;
     height: auto;
     padding: 12px 0;
-	font-size: 16px;
-    /* No font-size here to keep it at 16px */
-}
-  
-.mobile-bottom-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  margin-bottom: 32px;
-  padding: 16px 0;
-}
+    font-size: 16px;
+  }
 
-.mobile-bottom-controls .arrow {
-  font-size: 48px;       /* Big, touch-friendly, confident */
-  font-weight: 600;      /* Balanced thickness across browsers */
-  line-height: 1;
-  opacity: 0.9;
-}
+  /* Mobile controls */
+  .mobile-bottom-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 32px;
+    padding: 16px 0;
+  }
 
-.mobile-bottom-controls .gallery-counter {
-  font-size: 18px;
-  opacity: 0.8;
-  min-width: 60px;       /* Prevents slight shifting of arrows when counter changes from 9→10 */
-  text-align: center;
-}
+  .mobile-bottom-controls .arrow {
+    font-size: 48px;
+    font-weight: 600;
+    opacity: 0.9;
+  }
 
+  .mobile-bottom-controls .gallery-counter {
+    font-size: 18px;
+    opacity: 0.8;
+    min-width: 60px;
+    text-align: center;
+  }
 
-  /* ABOUT */
+  /* About */
   .about {
     display: flex;
     flex-direction: column;
@@ -205,7 +247,7 @@ a {
     max-height: 45vh;
   }
 
-  /* GALLERY */
+  /* Gallery */
   .gallery {
     padding: 40px 24px 60px;
   }
@@ -216,28 +258,21 @@ a {
     gap: 28px;
   }
 
-  .desktop {
-    display: none;
-  }
-
-  .mobile {
-    display: flex;
-  }
+  .desktop { display: none; }
+  .mobile { display: flex; }
 
   .gallery-frame {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 32px;  /* Slightly tighter sides for more image space */
+    padding: 0 32px;
   }
-  
 
   .gallery-frame img {
     max-width: 100%;
     height: auto;
     object-fit: contain;
-    display: block;
-    margin-bottom: 24px;  /* Consistent, pleasant gap below every image */
+    margin-bottom: 24px;
   }
 
   .gallery-counter.mobile {
@@ -252,61 +287,25 @@ a {
     text-align: center;
     margin-bottom: 20px;
   }
-  
+
   .gallery-text p {
     max-width: 600px;
     text-align: center;
     font-size: 17px;
     line-height: 1.7;
   }
+
+  /* Contact */
+  .content {
+    margin: 80px 16px 0 16px;
+    padding: 0;
+  }
+
+  .content h1 {
+    font-size: 28px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
 }
-
-p {
-  color: rgba(17, 17, 17, 0.85);
-}
-
-h1, h2 {
-  letter-spacing: 0.02em;
-}
-
-body {
-  animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.arrow {
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.arrow:hover {
-  opacity: 1;
-}
-
-.nav a:hover {
-  color: #555;   /* slightly darker on hover */
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-body {
-  animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.content p {
-  color: rgba(17, 17, 17, 0.85);
-}
-
-
-
-
-
