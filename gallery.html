@@ -1,165 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery</title>
-
+  <title>Галерея — Артем Черников</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- Fonts -->
+  <!-- Шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav class="nav">
-  <a href="index.html">О художнике</a>
-  <a href="gallery.html">Галерея</a>
-  <a href="contact.html">Контакты</a>
-</nav>
+  <nav class="nav">
+    <a href="index.html">О художнике</a>
+    <a href="gallery.html">Галерея</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
 
+  <section class="gallery">
+    <div class="gallery-main">
+      <div class="gallery-frame">
+        <img id="galleryImage" src="images/painting1.jpg" alt="Хроматическая тишина">
 
-<section class="gallery">
+        <div class="gallery-controls mobile mobile-bottom-controls">
+          <button class="arrow" onclick="prevImage()" aria-label="Предыдущая картина">←</button>
+          <span class="gallery-counter" id="counterMobile">1 / 15</span>
+          <button class="arrow" onclick="nextImage()" aria-label="Следующая картина">→</button>
+        </div>
+      </div>
 
-  <div class="gallery-main">
+      <div class="gallery-text">
+        <h2 id="galleryTitle">Хроматическая тишина</h2>
 
-    <div class="gallery-frame">
-	  
-		<img id="galleryImage" src="images/painting1.jpg" alt="Oil painting">
-	  
-      <div class="gallery-controls mobile mobile-bottom-controls">
-		<button class="arrow" onclick="prevImage()">←</button>
-		<span class="gallery-counter" id="counterMobile">1 / 15</span>
-		<button class="arrow" onclick="nextImage()">→</button>
-	  </div>
+        <p id="galleryDescription">
+          Слоистый абстрактный пейзаж, в котором насыщенные цветовые поля
+          пересекаются с моментами покоя. Работа говорит языком цвета,
+          балансируя между движением и тишиной.
+        </p>
 
-    </div>
-
-    <div class="gallery-text">
-      <h2 id="galleryTitle">Хроматическая тишина</h2>
-
-      <p id="galleryDescription">
-        Слоистый абстрактный пейзаж, в котором насыщенные цветовые поля
-        пересекаются с моментами покоя. Работа говорит языком цвета,
-        балансируя между движением и тишиной.
-      </p>
-
-      <div class="gallery-controls desktop">
-        <button class="arrow" onclick="prevImage()">←</button>
-        <span class="gallery-counter" id="counterDesktop">1 / 15</span>
-        <button class="arrow" onclick="nextImage()">→</button>
+        <div class="gallery-controls desktop">
+          <button class="arrow" onclick="prevImage()" aria-label="Предыдущая картина">←</button>
+          <span class="gallery-counter" id="counterDesktop">1 / 15</span>
+          <button class="arrow" onclick="nextImage()" aria-label="Следующая картина">→</button>
+        </div>
       </div>
     </div>
+  </section>
 
-  </div>
+  <footer class="footer">
+    <p>© 2023-2026 Артем Черников. Все права защищены.</p>
+  </footer>
 
-</section>
+  <script>
+    const works = [
+      { src: "images/painting1.jpg", title: "Хроматическая тишина", description: "Слоистый абстрактный пейзаж, в котором насыщенные цветовые поля пересекаются с моментами покоя. Работа говорит языком цвета, балансируя между движением и тишиной." },
+      { src: "images/painting2.jpg", title: "Красный горизонт", description: "Исследование дистанции и напряжения через растворяющуюся линию горизонта, наполненную интенсивным цветом." },
+      { src: "images/painting3.jpg", title: "Вертикальный свет", description: "Поднимающиеся цветовые структуры формируют светящийся центр, создавая ощущение роста и внутренней концентрации." },
+      { src: "images/painting4.jpg", title: "Ночной лес", description: "Глубокие синие и тёмные тона превращают пейзаж в почти сновидческое пространство тишины и скрытого движения." },
+      { src: "images/painting5.jpg", title: "Цветочное ядро", description: "Плотная органическая форма возникает из напряжённого фона, соединяя хрупкость и устойчивость." },
+      { src: "images/painting6.jpg", title: "Береговое напряжение", description: "Столкновение суши и воды передано через резкие цветовые переходы и ломкую структуру формы." },
+      { src: "images/painting7.jpg", title: "Внутренний огонь", description: "Светящееся ядро удерживается тёмными слоями, создавая образ скрытой эмоциональной энергии." },
+      { src: "images/painting8.jpg", title: "Эхо утёсов", description: "Монументальные формы словно застыли во времени, сохраняя напряжение и силу природного пространства." },
+      { src: "images/painting9.jpg", title: "Цветущий интервал", description: "Лёгкие формы и плавные переходы цвета создают ощущение паузы и медленного раскрытия момента." },
+      { src: "images/painting10.jpg", title: "Белый цветок", description: "Светлая форма контрастирует с насыщенным фоном, подчёркивая хрупкость и ясность образа." },
+      { src: "images/painting11.jpg", title: "Осенний поток", description: "Тёплые оттенки и динамичные мазки передают ритм и движение осеннего пейзажа." },
+      { src: "images/painting12.jpg", title: "Древо света", description: "Центральная вертикаль собирает вокруг себя свет, превращая форму в символ роста и связи." },
+      { src: "images/painting13.jpg", title: "Зелёный путь", description: "Извилистые линии и плотная растительность создают ощущение движения и выбора направления." },
+      { src: "images/painting14.jpg", title: "Белые берега", description: "Контраст светлых форм и тёмной глубины создаёт атмосферу тишины и дистанции." },
+      { src: "images/painting15.jpg", title: "Последний свет", description: "Финальная композиция, наполненная мягким светом, ощущением завершения и покоя." }
+    ];
 
+    let index = 0;
+    const galleryImage = document.getElementById('galleryImage');
+    const galleryTitle = document.getElementById('galleryTitle');
+    const galleryDescription = document.getElementById('galleryDescription');
+    const counterDesktop = document.getElementById('counterDesktop');
+    const counterMobile = document.getElementById('counterMobile');
 
+    function updateGallery() {
+      galleryImage.src = works[index].src;
+      galleryImage.alt = works[index].title;
+      galleryTitle.textContent = works[index].title;
+      galleryDescription.textContent = works[index].description;
 
-<script>
-const works = [
-  {
-    src: "images/painting1.jpg",
-    title: "Хроматическая тишина",
-    description: "Слоистый абстрактный пейзаж, в котором насыщенные цветовые поля пересекаются с моментами покоя. Работа говорит языком цвета, балансируя между движением и тишиной."
-  },
-  {
-    src: "images/painting2.jpg",
-    title: "Красный горизонт",
-    description: "Исследование дистанции и напряжения через растворяющуюся линию горизонта, наполненную интенсивным цветом."
-  },
-  {
-    src: "images/painting3.jpg",
-    title: "Вертикальный свет",
-    description: "Поднимающиеся цветовые структуры формируют светящийся центр, создавая ощущение роста и внутренней концентрации."
-  },
-  {
-    src: "images/painting4.jpg",
-    title: "Ночной лес",
-    description: "Глубокие синие и тёмные тона превращают пейзаж в почти сновидческое пространство тишины и скрытого движения."
-  },
-  {
-    src: "images/painting5.jpg",
-    title: "Цветочное ядро",
-    description: "Плотная органическая форма возникает из напряжённого фона, соединяя хрупкость и устойчивость."
-  },
-  {
-    src: "images/painting6.jpg",
-    title: "Береговое напряжение",
-    description: "Столкновение суши и воды передано через резкие цветовые переходы и ломкую структуру формы."
-  },
-  {
-    src: "images/painting7.jpg",
-    title: "Внутренний огонь",
-    description: "Светящееся ядро удерживается тёмными слоями, создавая образ скрытой эмоциональной энергии."
-  },
-  {
-    src: "images/painting8.jpg",
-    title: "Эхо утёсов",
-    description: "Монументальные формы словно застыли во времени, сохраняя напряжение и силу природного пространства."
-  },
-  {
-    src: "images/painting9.jpg",
-    title: "Цветущий интервал",
-    description: "Лёгкие формы и плавные переходы цвета создают ощущение паузы и медленного раскрытия момента."
-  },
-  {
-    src: "images/painting10.jpg",
-    title: "Белый цветок",
-    description: "Светлая форма контрастирует с насыщенным фоном, подчёркивая хрупкость и ясность образа."
-  },
-  {
-    src: "images/painting11.jpg",
-    title: "Осенний поток",
-    description: "Тёплые оттенки и динамичные мазки передают ритм и движение осеннего пейзажа."
-  },
-  {
-    src: "images/painting12.jpg",
-    title: "Древо света",
-    description: "Центральная вертикаль собирает вокруг себя свет, превращая форму в символ роста и связи."
-  },
-  {
-    src: "images/painting13.jpg",
-    title: "Зелёный путь",
-    description: "Извилистые линии и плотная растительность создают ощущение движения и выбора направления."
-  },
-  {
-    src: "images/painting14.jpg",
-    title: "Белые берега",
-    description: "Контраст светлых форм и тёмной глубины создаёт атмосферу тишины и дистанции."
-  },
-  {
-    src: "images/painting15.jpg",
-    title: "Последний свет",
-    description: "Финальная композиция, наполненная мягким светом, ощущением завершения и покоя."
-  }
-];
+      const text = `${index + 1} / ${works.length}`;
+      counterDesktop.textContent = text;
+      counterMobile.textContent = text;
+    }
 
-let index = 0;
+    function nextImage() {
+      index = (index + 1) % works.length;
+      updateGallery();
+    }
 
-function updateGallery() {
-  galleryImage.src = works[index].src;
-  galleryTitle.textContent = works[index].title;
-  galleryDescription.textContent = works[index].description;
+    function prevImage() {
+      index = (index - 1 + works.length) % works.length;
+      updateGallery();
+    }
 
-  const text = `${index + 1} / ${works.length}`;
-  counterDesktop.textContent = text;
-  counterMobile.textContent = text;
-}
-
-function nextImage() {
-  index = (index + 1) % works.length;
-  updateGallery();
-}
-
-function prevImage() {
-  index = (index - 1 + works.length) % works.length;
-  updateGallery();
-}
-</script>
+    // Инициализация
+    updateGallery();
+  </script>
 
 </body>
 </html>
