@@ -169,11 +169,12 @@ a {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-top: 10px; /* spacing below the image */
+  margin-top: 0px; /* spacing below the image */
+  padding: 16px 0;
 }
 
 .mobile-bottom-controls .arrow {
-  font-size: 36px; /* bigger arrows */
+  font-size: 48px; /* bigger arrows */
 }
 
 .mobile-bottom-controls .gallery-counter {
@@ -228,12 +229,14 @@ a {
   
   .image-wrapper {
     width: 100%;
-    height: 65vh;                /* fixed height area */
-    display: flex;
+    height: 55vh; 	/* fixed height area */
+    max-height: 500px;
+	display: flex;
     align-items: center;         /* vertical centering */
     justify-content: center;     /* horizontal centering */
     /* Optional: subtle background if you want to see the area */
     /* background: rgba(0,0,0,0.02); */
+	margin-bottom: 8px;
   }
 
   .image-wrapper img {
@@ -299,7 +302,6 @@ body {
 .content p {
   color: rgba(17, 17, 17, 0.85);
 }
-
 
 
 
