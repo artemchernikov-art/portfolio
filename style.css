@@ -169,7 +169,7 @@ a {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-top: 20px; /* spacing below the image */
+  margin-top: 10px; /* spacing below the image */
 }
 
 .mobile-bottom-controls .arrow {
@@ -299,6 +299,7 @@ body {
 .content p {
   color: rgba(17, 17, 17, 0.85);
 }
+
 
 
 
