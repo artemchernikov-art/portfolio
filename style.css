@@ -139,6 +139,8 @@ footer p {
 }
 
 /* Navigation Arrows - Side positioned */
+
+/* Desktop: Subtle, fade-in on hover */
 .nav-arrow {
   position: absolute;
   top: 50%;
@@ -148,7 +150,7 @@ footer p {
   font-size: 3rem;
   color: #333;
   cursor: pointer;
-  opacity: 0; /* Hidden by default */
+  opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
@@ -157,7 +159,7 @@ footer p {
 }
 
 .position-relative:hover .nav-arrow {
-  opacity: 0.5; /* Appear on hover (desktop) */
+  opacity: 0.5;
 }
 
 .nav-arrow:hover {
@@ -173,16 +175,17 @@ footer p {
   right: 2rem;
 }
 
-/* Mobile: Always visible, larger, more touch-friendly */
+/* Mobile: Bold, always visible, touch-friendly (first version style) */
 @media (max-width: 800px) {
   .nav-arrow {
-    opacity: 0.7;
-    font-size: 3.5rem;
-    padding: 0.6rem 1.8rem;
+    font-size: 48px;
+    font-weight: 600;
+    opacity: 0.9;
+    line-height: 1;
   }
 
   .position-relative:hover .nav-arrow {
-    opacity: 0.9; /* Slightly stronger on hover/tap */
+    opacity: 0.9;
   }
 
   .nav-arrow:hover {
