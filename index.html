@@ -3,41 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Артем Черников — Художник</title>
+  <title>О художнике</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Шрифты -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="index.html">О художнике</a>
-    <a href="gallery.html">Галерея</a>
-    <a href="contact.html">Контакты</a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">О художнике</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gallery.html">Галерея</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
-  <section class="about">
-    <img src="images/portrait.jpg" alt="Портрет художника Артема Черникова">
-
-    <div class="about-text">
-      <h1 class="artist-name">Артем Черников</h1>
-
-      <p>
-        Я художник, работающий преимущественно с живописью маслом.
-        В своих работах я исследую эмоции, память и атмосферу
-        через насыщенный цвет, многослойные фактуры и выразительный мазок.
-        Меня интересует, как сам цвет может нести смысл
-        и вызывать ощущение тихой, сдержанной интенсивности.
-      </p>
+  <!-- About Section -->
+  <section class="about container my-5">
+    <div class="row align-items-center gy-4">
+      <!-- Image Column -->
+      <div class="col-md-6 text-center">
+        <img src="images/portrait.jpg" alt="Портрет художника" class="img-fluid" style="max-width: 360px; object-fit: contain;">
+      </div>
+      <!-- Text Column -->
+      <div class="col-md-6">
+        <h1 class="artist-name text-center">Артем Черников</h1>
+        <p>
+          Я художник, работающий преимущественно с живописью маслом.
+          В своих работах я исследую эмоции, память и атмосферу
+          через насыщенный цвет, многослойные фактуры и выразительный мазок.
+          Меня интересует, как сам цвет может нести смысл
+          и вызывать ощущение тихой, сдержанной интенсивности.
+        </p>
+      </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <p>© 2023-2026 Артем Черников. Все права защищены.</p>
+  <!-- Footer -->
+  <footer class="bg-light text-center py-3 mt-auto">
+    <p>© 2015–2026 Артем Черников. Все права защищены.</p>
   </footer>
 
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
