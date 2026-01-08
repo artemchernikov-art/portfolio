@@ -140,7 +140,7 @@ footer p {
 
 /* Navigation Arrows - Side positioned */
 
-/* Desktop: Subtle, fade-in on hover */
+/* Desktop: Subtle, fade-in on hover (unchanged) */
 .nav-arrow {
   position: absolute;
   top: 50%;
@@ -175,21 +175,27 @@ footer p {
   right: 2rem;
 }
 
-/* Mobile: Bold, always visible, touch-friendly (first version style) */
+/* Mobile: White round background, stylish, medium size (like first version but refined) */
 @media (max-width: 800px) {
   .nav-arrow {
-    font-size: 48px;
-    font-weight: 600;
-    opacity: 0.9;
-    line-height: 1;
-  }
-
-  .position-relative:hover .nav-arrow {
-    opacity: 0.9;
+    font-size: 2.2rem; /* Medium-large, touch-friendly */
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.95;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0;
   }
 
   .nav-arrow:hover {
     opacity: 1;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   }
 
   .nav-arrow.left {
@@ -198,6 +204,11 @@ footer p {
 
   .nav-arrow.right {
     right: 1rem;
+  }
+
+  /* Always visible on mobile */
+  .position-relative .nav-arrow {
+    opacity: 0.95;
   }
 }
 
