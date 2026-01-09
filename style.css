@@ -268,3 +268,11 @@ footer p {
   min-height: 100vh;
   min-height: 100dvh;
 }
+
+@media (max-width: 800px) {
+  .about .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
