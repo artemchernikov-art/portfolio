@@ -15,6 +15,10 @@ body {
 
 p {
   color: rgba(17, 17, 17, 0.85);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  text-align: left;
 }
 
 h1, h2, h5 {
@@ -23,7 +27,7 @@ h1, h2, h5 {
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 42px;
 }
 
 h5.card-title {
@@ -47,12 +51,18 @@ h5.card-title {
 }
 
 /* About Page */
+.about {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .about img {
-  max-height: 60vh;
+  max-height: 50vh;
 }
 
 .artist-name {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 38px;
 }
 
 /* Gallery Cards */
@@ -80,10 +90,22 @@ h5.card-title {
   margin-bottom: 1.5em;
 }
 
-/* Footer */
+/* Footer - Copyright Notice Matching Screenshot */
+footer {
+  background: #f4f1ec;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
+}
+
 footer p {
-  font-size: 14px;
-  opacity: 0.8;
+  font-size: 14px;               /* Small, subtle size like in screenshot */
+  font-style: normal;            /* No italic – matches screenshot */
+  font-weight: 400;
+  color: rgba(17, 17, 17, 0.7);   /* Soft gray, slightly faded */
+  opacity: 1;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-align: center;            /* Explicitly centered */
 }
 
 /* Modal */
@@ -140,7 +162,7 @@ footer p {
 
 /* Navigation Arrows - Side positioned */
 
-/* Desktop: Subtle, fade-in on hover (unchanged) */
+/* Desktop: Subtle, fade-in on hover */
 .nav-arrow {
   position: absolute;
   top: 50%;
@@ -175,27 +197,26 @@ footer p {
   right: 2rem;
 }
 
-/* Mobile: White round background, stylish, medium size (like first version but refined) */
+/* Mobile: Small arrows on white round background */
 @media (max-width: 800px) {
   .nav-arrow {
-    font-size: 2.2rem; /* Medium-large, touch-friendly */
-    background: rgba(255, 255, 255, 0.95);
-    color: #333;
-    width: 56px;
-    height: 56px;
+    font-size: 1.5rem;
+    background: #fff;
+    color: #111;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.95;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0.8;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     padding: 0;
   }
 
   .nav-arrow:hover {
     opacity: 1;
-    transform: translateY(-50%) scale(1.08);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
   .nav-arrow.left {
@@ -206,9 +227,8 @@ footer p {
     right: 1rem;
   }
 
-  /* Always visible on mobile */
   .position-relative .nav-arrow {
-    opacity: 0.95;
+    opacity: 0.8;
   }
 }
 
