@@ -1,635 +1,70 @@
-/* Base Styles */
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f4f1ec;
-  color: #111;
-  line-height: 1.7;
-  font-size: 18px;
-  animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-p {
-  color: rgba(17, 17, 17, 0.85);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  font-size: 16px;
-  text-align: left;
-}
-
-h1, h2, h5 {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 0.02em;
-}
-
-h1 {
-  font-size: 42px;
-}
-
-h5.card-title {
-  font-size: 28px;
-}
-
-/* Navbar - Uniform across all pages */
-.navbar {
-  padding: 1.5rem 0;
-}
-
-.navbar-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.1rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  padding-left: 3rem !important;
-}
-
-.navbar-nav {
-  gap: 2.5rem;
-  padding-right: 3rem !important; /* Symmetric right margin to match left */
-}
-
-.nav-link {
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #111;
-  font-weight: 600;
-}
-
-.nav-link.active {
-  color: #111;
-  font-weight: 700; /* Only bold for current page — underline removed */
-}
-
-/* Mobile navbar adjustments */
-@media (max-width: 991px) {
-  .navbar-brand {
-    padding-left: 1.5rem !important;
-    font-size: 1.8rem;
-  }
-
-  .navbar-toggler {
-    margin-right: 1.5rem;
-  }
-
-  .navbar-collapse {
-    padding-left: 1.5rem;
-  }
-
-  .navbar-nav {
-    margin-top: 1rem;
-    gap: 1.2rem;
-    padding-right: 0 !important;
-  }
-
-  .nav-link {
-    font-size: 1.3rem;
-    padding: 0.6rem 0;
-  }
-}
-
-/* About Page */
-.about {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.portrait-img {
-  max-height: 70vh; /* Larger portrait — matches text column height */
-  object-fit: contain;
-  width: auto;
-}
-
-.artist-name {
-  margin-bottom: 1rem;
-  font-size: 38px;
-}
-
-/* Gallery Cards */
-.gallery .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e0deda;
-  border-radius: 4px;
-  background: transparent;
-  overflow: hidden;
-}
-
-.gallery .card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-.gallery .card-img-top {
-  background: #fafafa;
-  padding: 0.5rem;
-}
-
-/* Contact Page */
-.contact p {
-  font-size: 18px;
-  margin-bottom: 1.5em;
-}
-
-/* Footer */
-footer {
-  background: #f4f1ec;
-  padding: 2rem 0;
-  border-top: 1px solid rgba(17, 17, 17, 0.08);
-}
-
-footer p {
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(17, 17, 17, 0.7);
-  opacity: 1;
-  margin: 0;
-  letter-spacing: 0.02em;
-  text-align: center;
-}
-
-/* Modal */
-.modal-content {
-  background-color: #f4f1ec;
-  border: none;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-}
-
-.modal-header {
-  border-bottom: 1px solid rgba(17, 17, 17, 0.1);
-  padding: 1.5rem;
-  justify-content: center;
-  position: relative;
-}
-
-.modal-header .modal-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  color: #111;
-  letter-spacing: 0.02em;
-  text-align: center;
-  flex-grow: 1;
-}
-
-.modal-header .btn-close {
-  opacity: 0.6;
-  position: absolute;
-  right: 1.5rem;
-}
-
-.modal-header .btn-close:hover {
-  opacity: 1;
-}
-
-.modal-body {
-  padding: 2rem;
-}
-
-.modal-body p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: rgba(17, 17, 17, 0.85);
-  margin-top: 1rem;
-}
-
-.modal-body img {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  background: #fafafa;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-
-/* Navigation Arrows - Side positioned */
-
-/* Desktop: Subtle, fade-in on hover */
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  font-size: 3rem;
-  color: #333;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  padding: 0.5rem 1.5rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-}
-
-.position-relative:hover .nav-arrow {
-  opacity: 0.5;
-}
-
-.nav-arrow:hover {
-  opacity: 1;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.nav-arrow.left {
-  left: 2rem;
-}
-
-.nav-arrow.right {
-  right: 2rem;
-}
-
-/* Mobile: Small arrows on white round background */
-@media (max-width: 800px) {
-  .nav-arrow {
-    font-size: 1.5rem;
-    background: #fff;
-    color: #111;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.8;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    padding: 0;
-  }
-
-  .nav-arrow:hover {
-    opacity: 1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  .nav-arrow.left {
-    left: 1rem;
-  }
-
-  .nav-arrow.right {
-    right: 1rem;
-  }
-
-  .position-relative .nav-arrow {
-    opacity: 0.8;
-  }
-}
-
-/* Responsive */
-@media (max-width: 800px) {
-  body {
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 36px;
-  }
-
-  h5.card-title {
-    font-size: 24px;
-  }
-
-  .nav-link {
-    font-size: 16px;
-  }
-
-  .modal-header .modal-title {
-    font-size: 28px;
-  }
-
-  .modal-body p {
-    font-size: 16px;
-  }
-
-  .modal-body .row {
-    flex-direction: column;
-  }
-}
-
-/* Fix for Chrome viewport/footer */
-.min-vh-100 {
-  min-height: 100vh;
-  min-height: 100dvh;
-}/* Base Styles */
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f4f1ec;
-  color: #111;
-  line-height: 1.7;
-  font-size: 18px;
-  animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-p {
-  color: rgba(17, 17, 17, 0.85);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  font-size: 16px;
-  text-align: left;
-}
-
-h1, h2, h5 {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 0.02em;
-}
-
-h1 {
-  font-size: 42px;
-}
-
-h5.card-title {
-  font-size: 28px;
-}
-
-/* Navbar - Uniform across all pages */
-.navbar {
-  padding: 1.5rem 0;
-}
-
-.navbar-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.1rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  padding-left: 3rem !important;
-}
-
-.navbar-nav {
-  gap: 2.5rem;
-  padding-right: 3rem !important; /* Symmetric right margin to match left */
-}
-
-.nav-link {
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #111;
-  font-weight: 600;
-}
-
-.nav-link.active {
-  color: #111;
-  font-weight: 700; /* Only bold for current page — underline removed */
-}
-
-/* Mobile navbar adjustments */
-@media (max-width: 991px) {
-  .navbar-brand {
-    padding-left: 1.5rem !important;
-    font-size: 1.8rem;
-  }
-
-  .navbar-toggler {
-    margin-right: 1.5rem;
-  }
-
-  .navbar-collapse {
-    padding-left: 1.5rem;
-  }
-
-  .navbar-nav {
-    margin-top: 1rem;
-    gap: 1.2rem;
-    padding-right: 0 !important;
-  }
-
-  .nav-link {
-    font-size: 1.3rem;
-    padding: 0.6rem 0;
-  }
-}
-
-/* About Page */
-.about {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.portrait-img {
-  max-height: 70vh; /* Larger portrait — matches text column height */
-  object-fit: contain;
-  width: auto;
-}
-
-.artist-name {
-  margin-bottom: 1rem;
-  font-size: 38px;
-}
-
-/* Gallery Cards */
-.gallery .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e0deda;
-  border-radius: 4px;
-  background: transparent;
-  overflow: hidden;
-}
-
-.gallery .card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-.gallery .card-img-top {
-  background: #fafafa;
-  padding: 0.5rem;
-}
-
-/* Contact Page */
-.contact p {
-  font-size: 18px;
-  margin-bottom: 1.5em;
-}
-
-/* Footer */
-footer {
-  background: #f4f1ec;
-  padding: 2rem 0;
-  border-top: 1px solid rgba(17, 17, 17, 0.08);
-}
-
-footer p {
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(17, 17, 17, 0.7);
-  opacity: 1;
-  margin: 0;
-  letter-spacing: 0.02em;
-  text-align: center;
-}
-
-/* Modal */
-.modal-content {
-  background-color: #f4f1ec;
-  border: none;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-}
-
-.modal-header {
-  border-bottom: 1px solid rgba(17, 17, 17, 0.1);
-  padding: 1.5rem;
-  justify-content: center;
-  position: relative;
-}
-
-.modal-header .modal-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  color: #111;
-  letter-spacing: 0.02em;
-  text-align: center;
-  flex-grow: 1;
-}
-
-.modal-header .btn-close {
-  opacity: 0.6;
-  position: absolute;
-  right: 1.5rem;
-}
-
-.modal-header .btn-close:hover {
-  opacity: 1;
-}
-
-.modal-body {
-  padding: 2rem;
-}
-
-.modal-body p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: rgba(17, 17, 17, 0.85);
-  margin-top: 1rem;
-}
-
-.modal-body img {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  background: #fafafa;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-
-/* Navigation Arrows - Side positioned */
-
-/* Desktop: Subtle, fade-in on hover */
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  font-size: 3rem;
-  color: #333;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  padding: 0.5rem 1.5rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-}
-
-.position-relative:hover .nav-arrow {
-  opacity: 0.5;
-}
-
-.nav-arrow:hover {
-  opacity: 1;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.nav-arrow.left {
-  left: 2rem;
-}
-
-.nav-arrow.right {
-  right: 2rem;
-}
-
-/* Mobile: Small arrows on white round background */
-@media (max-width: 800px) {
-  .nav-arrow {
-    font-size: 1.5rem;
-    background: #fff;
-    color: #111;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.8;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    padding: 0;
-  }
-
-  .nav-arrow:hover {
-    opacity: 1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  .nav-arrow.left {
-    left: 1rem;
-  }
-
-  .nav-arrow.right {
-    right: 1rem;
-  }
-
-  .position-relative .nav-arrow {
-    opacity: 0.8;
-  }
-}
-
-/* Responsive */
-@media (max-width: 800px) {
-  body {
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 36px;
-  }
-
-  h5.card-title {
-    font-size: 24px;
-  }
-
-  .nav-link {
-    font-size: 16px;
-  }
-
-  .modal-header .modal-title {
-    font-size: 28px;
-  }
-
-  .modal-body p {
-    font-size: 16px;
-  }
-
-  .modal-body .row {
-    flex-direction: column;
-  }
-}
-
-/* Fix for Chrome viewport/footer */
-.min-vh-100 {
-  min-height: 100vh;
-  min-height: 100dvh;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О художнике</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Артем Черников</a>
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">О художнике</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gallery.html">Галерея</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section class="about container my-5 flex-grow-1">
+    <div class="row align-items-center gy-4">
+      <div class="col-md-6 text-center">
+        <img src="images/portrait.jpg" alt="Портрет художника" class="img-fluid portrait-img">
+      </div>
+      <div class="col-md-6 text-center">
+        <p>
+          Я — визуальный художник, мои работы — это не изображения реальных мест, а скорее метафоры человеческих эмоций и внутреннего разума. Я описываю их как «психологические и эмоциональные ландшафты», которые фиксируют человеческий опыт. Я использую яркую, неоновую цветовую палитру, часто смешивая масло, акрил и красители прямо на холсте, чтобы создавать уникальные, высоко интенсивные цвета.
+        </p>
+        <p>
+          Мои крупномасштабные холсты часто выполнены в "человеческом масштабе", предназначены для того, чтобы быть иммерсивными, привлекательными и иногда тревожными, втягивая зрителя в мои вымышленные миры. Я применяю разнообразные техники, включая головокружительную кисть, активное наслоение, спрей-краску и эмаль, чтобы строить богатые, многотекстурные поверхности и создавать ощущение динамической глубины.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center py-3 mt-auto">
+    <p>© 2022–2026 Артем Черников. Все права защищены.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
