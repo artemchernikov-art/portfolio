@@ -37,6 +37,7 @@ h5.card-title {
 /* Navbar - Uniform across all pages */
 .navbar {
   padding: 1.5rem 0;
+  background-color: #f8f7f5 !important;
 }
 
 .navbar-brand {
@@ -660,6 +661,7 @@ footer p {
     margin: 1.5rem 0;   /* adds breathing room */
   }
 }
+
 
 
 
