@@ -652,3 +652,14 @@ footer p {
   }
 }
 
+/* Mobile portrait adjustment */
+@media (max-width: 768px) {
+  .portrait-img {
+    max-height: 45vh;   /* smaller than desktop */
+    width: 100%;        /* ensure it fits nicely */
+    margin: 1.5rem 0;   /* adds breathing room */
+  }
+}
+
+
+
