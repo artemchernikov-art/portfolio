@@ -633,3 +633,22 @@ footer p {
   min-height: 100vh;
   min-height: 100dvh;
 }
+
+@media (max-width: 800px) {
+  section.about.container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    max-width: none !important; /* Allows full width control */
+  }
+
+  section.about .row {
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+  }
+
+  section.about .col-md-6 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
