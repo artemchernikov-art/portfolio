@@ -271,8 +271,8 @@ footer p {
 
 @media (max-width: 800px) {
   .about .container {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 100px !important;
+    padding-right: 100px !important;
   }
 
   /* Optional: Remove Bootstrap row negative margins if needed for extra control */
@@ -286,6 +286,7 @@ footer p {
     padding-right: 0 !important;
   }
 }
+
 
 
 
