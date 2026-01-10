@@ -335,15 +335,28 @@ footer p {
   }
 }
 
-/* Mobile portrait adjustment */
-@media (max-width: 768px) {
-  .portrait-img {
-    max-height: 45vh;   /* smaller than desktop */
-    width: 100%;        /* ensure it fits nicely */
-    margin: 1.5rem 0;   /* adds breathing room */
-  }
+body footer {
+  background-color: #f8f7f5 !important;
 }
 
- body footer {
-  background-color: #f8f7f5 !important;
+/* Extra side margin for mobile portrait ONLY */
+@media (max-width: 800px) {
+  .about .portrait-col {
+    padding-left: 3rem !important;   /* 48px left */
+    padding-right: 3rem !important;  /* 48px right */
+    box-sizing: border-box;
+  }
+
+  .about .portrait-img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 50vh !important;     /* Keeps your vertical limit */
+    object-fit: contain;
+  }
+
+  /* Ensure container doesn't clip the padding */
+  .about.container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 }
