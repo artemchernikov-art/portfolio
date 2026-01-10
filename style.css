@@ -141,7 +141,6 @@ h5.card-title {
 
 /* Footer */
 footer {
-  background: #f4f1ec;
   padding: 2rem 0;
   border-top: 1px solid rgba(17, 17, 17, 0.08);
 }
@@ -661,6 +660,7 @@ footer p {
     margin: 1.5rem 0;   /* adds breathing room */
   }
 }
+
 
 
 
