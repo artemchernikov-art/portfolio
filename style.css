@@ -103,10 +103,8 @@ h5.card-title {
   padding-bottom: 2rem;
 }
 
-.portrait-img {
-  max-height: 70vh; /* Larger portrait — matches text column height */
-  object-fit: contain;
-  width: auto;
+.about img {
+  max-height: 50vh;
 }
 
 .artist-name {
@@ -117,7 +115,8 @@ h5.card-title {
 /* Gallery Cards */
 .gallery .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e0deda;
+  background-color: #f5f3f0 !important; /* Slightly deeper beige */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Very subtle border instead of hard #e0deda */
   border-radius: 4px;
   background: transparent;
   overflow: hidden;
@@ -129,8 +128,8 @@ h5.card-title {
 }
 
 .gallery .card-img-top {
-  background: #fafafa;
-  padding: 0.5rem;
+  background-color: #f5f3f0 !important; /* Slightly deeper beige */
+  padding: 0.75rem; /* Slightly more padding for breathing room */
 }
 
 /* Contact Page */
@@ -141,6 +140,7 @@ h5.card-title {
 
 /* Footer */
 footer {
+  background-color: #f8f7f5 !important; /* Matches navbar to soften contrast */
   padding: 2rem 0;
   border-top: 1px solid rgba(17, 17, 17, 0.08);
 }
@@ -344,5 +344,6 @@ footer p {
   }
 }
 
-
-
+ body footer {
+  background-color: #f8f7f5 !important;
+}
