@@ -43,7 +43,7 @@ h5.card-title {
 .navbar-brand {
   font-family: 'Playfair Display', serif;
   font-size: 2.1rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.03em;
   padding-left: 3rem !important;
 }
@@ -66,8 +66,7 @@ h5.card-title {
 }
 
 .nav-link.active {
-  color: #111;
-  font-weight: 700; /* Only bold for current page — underline removed */
+  font-weight: 599;   /* Semi-bold — between 500 and 700 */
 }
 
 /* Mobile navbar adjustments */
@@ -335,9 +334,20 @@ footer p {
   }
 }
 
-body footer {
+/* Mobile portrait adjustment */
+@media (max-width: 768px) {
+  .portrait-img {
+    max-height: 45vh;   /* smaller than desktop */
+    width: 100%;        /* ensure it fits nicely */
+    margin: 1.5rem 0;   /* adds breathing room */
+  }
+}
+
+ body footer {
   background-color: #f8f7f5 !important;
 }
+
+
 
 /* Extra side margin for mobile portrait ONLY */
 @media (max-width: 800px) {
@@ -359,4 +369,19 @@ body footer {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important; /* very subtle dark line */
+  /* or even softer: */
+  /* border-bottom: 1px solid #e8e6e3 !important; */
+}
+
+.navbar-brand {
+  color: #2c2c2c !important; /* softer than pure black */
+  /* or even #333 for more elegance */
+}
+
+.navbar-brand {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.08);
 }
