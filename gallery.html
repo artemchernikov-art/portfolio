@@ -20,7 +20,7 @@
 <body class="d-flex flex-column min-vh-100">
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">Артем Черников</a>
       <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -225,7 +225,7 @@
 
   <!-- Footer -->
   <footer class="text-center py-3 mt-auto" style="background-color: #f8f7f5 !important;">
-    <p>© 2022–2026 Артем Черников</p>
+    <p>© 2022–2026 Артем Черников. Все права защищены.</p>
   </footer>
 
   <!-- Bootstrap JS -->
@@ -282,6 +282,47 @@
       }
     });
   </script>
+  <script>
+// Detect when navbar items wrap and center them
+function handleNavbarWrap() {
+  const navbar = document.querySelector('.navbar');
+  if (!navbar) return;
+
+  const brandRect = navbar.querySelector('.navbar-brand')?.getBoundingClientRect();
+  const togglerRect = navbar.querySelector('.navbar-toggler')?.getBoundingClientRect();
+
+  if (!brandRect || !togglerRect) return;
+
+  // If toggler top is below brand bottom → wrapped
+  const isWrapped = togglerRect.top > brandRect.bottom - 5; // -5 for small overlap tolerance
+
+  if (isWrapped) {
+    navbar.classList.add('wrapped');
+  } else {
+    navbar.classList.remove('wrapped');
+  }
+}
+
+// Run on load, resize, and after a tiny delay (font loading / zoom)
+window.addEventListener('resize', handleNavbarWrap);
+window.addEventListener('load', () => setTimeout(handleNavbarWrap, 100));
+document.addEventListener('DOMContentLoaded', () => setTimeout(handleNavbarWrap, 300));
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggler = document.querySelector('.navbar-toggler');
+    if (toggler) {
+      // Force-add .collapsed (closed/inactive state) on every page load
+      toggler.classList.add('collapsed');
+      toggler.setAttribute('aria-expanded', 'false');
+
+      // Also remove any accidental .show from the collapse element
+      const collapse = document.querySelector('.navbar-collapse');
+      if (collapse) {
+        collapse.classList.remove('show');
+      }
+    }
+  });
+</script>
 </body>
 </html>
-
