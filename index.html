@@ -66,6 +66,38 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const image = document.querySelector(".portrait-img");
+  const textColumn = image?.closest(".row")?.querySelector(".col-md-6:last-child");
+
+  if (!image || !textColumn) return;
+
+  function syncImageHeight() {
+    const isDesktop = window.innerWidth >= 768; // Bootstrap md+
+
+    if (!isDesktop) {
+      // Reset styles on mobile
+      image.style.maxHeight = "";
+      return;
+    }
+
+    const textHeight = textColumn.offsetHeight;
+
+    image.style.maxHeight = `${textHeight}px`;
+    image.style.width = "auto";
+    image.style.height = "auto";
+  }
+
+  // Run initially
+  syncImageHeight();
+
+  // Recalculate on resize
+  window.addEventListener("resize", syncImageHeight);
+});
+</script>
+
 </body>
 </html>
+
 
