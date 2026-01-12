@@ -108,19 +108,21 @@ h5.card-title {
     .navbar {
       justify-content: center !important;
       text-align: center;
-    }
+	  padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+	}
 
     .navbar-brand {
-      margin-left: auto !important;
-      margin-right: auto !important;
-      padding-left: 0 !important;         /* remove left pad when centered */
-      padding-right: 0 !important;
+	  max-width: 85vw !important;
+      margin-left: 0.5rem !important;   /* fixed small left margin */
+      margin-right: 0.5rem !important;  /* fixed small right margin */
       max-width: 90vw;                    /* more room when alone on line */
     }
 
     .navbar-toggler {
-      margin-left: auto !important;
-      margin-right: auto !important;
+	  max-width: 85vw !important;
+      margin-left: 0.5rem !important;   /* fixed small left margin */
+      margin-right: 0.5rem !important;  /* fixed small right margin */
       margin-top: 0.6rem;                 /* vertical spacing when below brand */
     }
   }
@@ -471,6 +473,5 @@ footer p {
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;  /* blue-ish Bootstrap focus */
   outline: none !important;
 }
-
 
 
