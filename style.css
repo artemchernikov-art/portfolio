@@ -74,48 +74,54 @@ h5.card-title {
 }
 
 /* Mobile navbar adjustments */
-/* Mobile navbar adjustments – balanced margins + center on wrap/zoom */
+/* Mobile navbar adjustments – reliable centering when wrapped */
 @media (max-width: 991px) {
 
   .navbar {
-    padding: 1.5rem 0;                    /* original vertical padding */
-    flex-wrap: wrap;                      /* natural wrap on zoom/large font */
-    justify-content: space-between;       /* brand left / toggler right by default */
+    padding: 1.5rem 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
   }
 
   .navbar-brand {
-    padding-left: 1.25rem !important;     /* ← reduced from 1.5rem – key fix for your complaint */
-    padding-right: 0.5rem !important;     /* small right breathing room */
-    font-size: 1.8rem;                    /* your original size */
-    margin: 0;
-    white-space: normal;                  /* allow multi-line if extreme zoom */
+    padding-left: 0.75rem !important;     /* your preferred value */
+    padding-right: 0.5rem !important;
+    font-size: 1.8rem;
+    white-space: normal;
     flex: 1 1 auto;
-    max-width: 80vw;                      /* prevent overflow */
+    max-width: 80vw;
   }
 
   .navbar-toggler {
-    margin-right: 1.5rem !important;      /* your preferred right margin kept */
-    margin-left: auto;                    /* pushes it right until wrap happens */
+    margin-right: 1.5rem !important;
+    margin-left: auto;
     flex: 0 0 auto;
   }
 
-  /* When wrapping occurs (brand and/or toggler on new lines) → center both */
-  .navbar-wrap-detected,
-  .navbar:has(.navbar-toggler[style*="margin"]) {   /* rough wrap hint */
-    justify-content: center;
-    text-align: center;
+  /* Center BOTH brand and toggler when the viewport is narrow enough that wrapping usually occurs */
+  /* Tune this number: test on your phone at problematic zoom levels */
+  /* Start with ~680–750px; increase if centering triggers too early, decrease if too late */
+  @media (max-width: 720px) {   /* ← CHANGE THIS VALUE to match your wrap point */
+    .navbar {
+      justify-content: center !important;
+      text-align: center;
+    }
+
+    .navbar-brand,
+    .navbar-toggler {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .navbar-toggler {
+      margin-top: 0.5rem;   /* small vertical gap between brand and hamburger */
+    }
   }
 
-  .navbar-wrap-detected .navbar-brand,
-  .navbar-wrap-detected .navbar-toggler {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 0 !important;           /* remove padding when centered */
-    padding-right: 0 !important;
-  }
-
-  /* Collapsed menu (open state) */
+  /* Collapsed menu – always centered */
   .navbar-collapse {
     padding: 1rem 0;
     text-align: center;
@@ -134,31 +140,6 @@ h5.card-title {
     font-size: 1.4rem;
     padding: 0.6rem 1rem;
   }
-
-  /* Extreme narrow / very high zoom fallback */
-  @media (max-width: 480px) {
-    .navbar-brand {
-      padding-left: 0.5rem !important;
-      font-size: 1.7rem;                  /* slight shrink only if needed */
-    }
-  }
-  .navbar.wrapped {
-  justify-content: center !important;
-  text-align: center;
-}
-
-.navbar.wrapped .navbar-brand,
-.navbar.wrapped .navbar-toggler {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.navbar.wrapped .navbar-toggler {
-  margin-top: 0.4rem;   /* tiny gap between brand name and hamburger */
-}
-  
 }
 /* Gallery Cards */
 .gallery .card {
