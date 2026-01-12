@@ -282,32 +282,7 @@
       }
     });
   </script>
-  <script>
-// Detect when navbar items wrap and center them
-function handleNavbarWrap() {
-  const navbar = document.querySelector('.navbar');
-  if (!navbar) return;
 
-  const brandRect = navbar.querySelector('.navbar-brand')?.getBoundingClientRect();
-  const togglerRect = navbar.querySelector('.navbar-toggler')?.getBoundingClientRect();
-
-  if (!brandRect || !togglerRect) return;
-
-  // If toggler top is below brand bottom → wrapped
-  const isWrapped = togglerRect.top > brandRect.bottom - 5; // -5 for small overlap tolerance
-
-  if (isWrapped) {
-    navbar.classList.add('wrapped');
-  } else {
-    navbar.classList.remove('wrapped');
-  }
-}
-
-// Run on load, resize, and after a tiny delay (font loading / zoom)
-window.addEventListener('resize', handleNavbarWrap);
-window.addEventListener('load', () => setTimeout(handleNavbarWrap, 100));
-document.addEventListener('DOMContentLoaded', () => setTimeout(handleNavbarWrap, 300));
-</script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const toggler = document.querySelector('.navbar-toggler');
