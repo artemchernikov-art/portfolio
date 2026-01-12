@@ -496,5 +496,34 @@ footer p {
   outline: none !important;
 }
 
+/* Make contact page text margins match about page on mobile only */
+@media (max-width: 991px) {
 
+  /* About page – reference values (already good) */
+  .about .col-md-6:last-child {
+    padding-left: 20px !important;    /* or whatever your current value is */
+    padding-right: 20px !important;
+  }
+
+  /* Force contact page to use the same padding/margins as about page */
+  .contact .col-md-8,
+  .contact .row.justify-content-center > div {
+    padding-left: 20px !important;    /* ← match the value from about page */
+    padding-right: 20px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 540px !important;      /* typical narrow content width – adjust if needed */
+  }
+
+  /* Optional: if contact page still feels wider, constrain container */
+  .contact.container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+/* Desktop remains unchanged – no need to override anything */
+@media (min-width: 992px) {
+  /* Nothing here – keeps original desktop styles */
+}
 
