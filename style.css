@@ -74,54 +74,58 @@ h5.card-title {
 }
 
 /* Mobile navbar adjustments */
-/* Mobile navbar adjustments – reliable centering when wrapped */
+/* Mobile navbar adjustments – brand stays left until real wrap, then center symmetrically */
 @media (max-width: 991px) {
 
   .navbar {
     padding: 1.5rem 0;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between;       /* brand left / toggler right by default */
     align-items: center;
+    gap: 0.5rem;                          /* small gap helps prevent premature wrap */
   }
 
   .navbar-brand {
-    padding-left: 0.75rem !important;     /* your preferred value */
+    padding-left: 0.75rem !important;     /* your preferred value – can try 0.5rem or 1rem */
     padding-right: 0.5rem !important;
     font-size: 1.8rem;
     white-space: normal;
-    flex: 1 1 auto;
-    max-width: 80vw;
+    flex: 0 1 auto;                       /* changed: do NOT grow excessively */
+    max-width: 70vw;                      /* tighter cap to leave room for toggler */
+    margin-right: auto;                   /* pushes toggler right in normal state */
   }
 
   .navbar-toggler {
     margin-right: 1.5rem !important;
-    margin-left: auto;
+    margin-left: 0.5rem;                  /* small left breathing when on same line */
     flex: 0 0 auto;
   }
 
-  /* Center BOTH brand and toggler when the viewport is narrow enough that wrapping usually occurs */
-  /* Tune this number: test on your phone at problematic zoom levels */
-  /* Start with ~680–750px; increase if centering triggers too early, decrease if too late */
-  @media (max-width: 720px) {   /* ← CHANGE THIS VALUE to match your wrap point */
+  /* Activate centering only when viewport is narrow enough for wrap */
+  /* Tune 720px → test on phone: find width where hamburger drops, add ~40–60px */
+  @media (max-width: 720px) {
+
     .navbar {
       justify-content: center !important;
       text-align: center;
     }
 
-    .navbar-brand,
+    .navbar-brand {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-left: 0 !important;         /* remove left pad when centered */
+      padding-right: 0 !important;
+      max-width: 90vw;                    /* more room when alone on line */
+    }
+
     .navbar-toggler {
       margin-left: auto !important;
       margin-right: auto !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-
-    .navbar-toggler {
-      margin-top: 0.5rem;   /* small vertical gap between brand and hamburger */
+      margin-top: 0.6rem;                 /* vertical spacing when below brand */
     }
   }
 
-  /* Collapsed menu – always centered */
+  /* Menu open – always centered */
   .navbar-collapse {
     padding: 1rem 0;
     text-align: center;
