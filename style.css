@@ -81,7 +81,7 @@ h5.card-title {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    padding: 1.2rem 0.8rem 1.8rem 0.8rem !important;
+    padding: 1.2rem 0.8rem 1.2rem 0.8rem !important;  /* make bottom match the space above */
     gap: 0.6rem !important;
   }
 
@@ -495,5 +495,6 @@ footer p {
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;  /* blue-ish Bootstrap focus */
   outline: none !important;
 }
+
 
 
