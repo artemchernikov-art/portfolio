@@ -74,100 +74,58 @@ h5.card-title {
 }
 
 /* Mobile navbar adjustments */
-/* Mobile: force brand centered on line 1, hamburger centered on line 2 */
 @media (max-width: 991px) {
-
-  .navbar {
-    flex-direction: column !important;
+  .navbar .container-fluid {
+    display: flex !important;
+    flex-wrap: wrap !important; /* Allows menu to drop to new line */
     align-items: center !important;
-    justify-content: flex-start !important;
-    padding: 1.2rem 0.8rem 1.2rem 0.8rem !important;  /* make bottom match the space above */
-    gap: 0.6rem !important;
+    justify-content: space-between !important; /* Brand Left, Toggler Right */
+    padding: 0 1rem !important;
   }
 
-  /* Explicitly make brand take full available width and center */
   .navbar-brand {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    text-align: center !important;
-    font-size: 2.1rem !important;       /* feels balanced when alone */
-    order: 1 !important;
+    padding-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+    transition: all 0.3s ease;
   }
 
-  /* Force hamburger to next line and center it */
   .navbar-toggler {
-    width: auto !important;
-    margin: 0.6rem auto 0 auto !important;
-    padding: 0.5rem 1rem !important;
+    margin: 0 !important; /* Removes the previous auto-centering */
     order: 2 !important;
   }
 
-  .navbar-toggler-icon {
-    width: 1.9em !important;
-    height: 1.9em !important;
-  }
-
-  /* Menu content below everything */
+  /* Force menu to its own line and center content */
   .navbar-collapse {
-    width: 100% !important;
-    margin-top: 1rem !important;
+    flex-basis: 100% !important; /* Forces the collapse to a new row */
+    order: 3 !important;
     text-align: center !important;
+    margin-top: 1rem !important;
   }
 
   .navbar-nav {
-    flex-direction: column !important;
     align-items: center !important;
+    padding-right: 0 !important;
     gap: 1.4rem !important;
   }
 
-  /* Prevent any Bootstrap override that might try to put them side-by-side */
-  .navbar > * {
-    flex: 0 0 auto !important;
+  /* --- ZOOM / WRAP LOGIC --- */
+  /* When the container is too narrow to fit both Brand and Toggler (Extreme zoom) */
+  @media (max-width: 380px) { 
+    .navbar .container-fluid {
+      justify-content: center !important;
+      gap: 10px;
+    }
+
+    .navbar-brand {
+      width: 100% !important;
+      text-align: center !important;
+    }
+
+    .navbar-toggler {
+      margin: 0 auto !important;
+    }
   }
-  
-  /* Fix menu opening position – force it below everything */
-.navbar-collapse {
-  order: 3 !important;               /* after brand (1) and toggler (2) */
-  margin-top: 1rem !important;       /* extra space above the menu when open */
-  width: 100% !important;
-}
-
-/* Make sure toggler stays above the menu */
-.navbar-toggler {
-  order: 2 !important;
-}
-
-/* Brand always first */
-.navbar-brand {
-  order: 1 !important;
-}
-
-.navbar-collapse {
-  order: 3 !important;
-  width: 100% !important;
-  margin-top: 1rem !important;
-  text-align: center !important;         /* key line */
-  padding: 0 !important;                 /* remove any unwanted side padding */
-}
-
-.navbar-nav {
-  flex-direction: column !important;
-  align-items: center !important;        /* centers the list items */
-  justify-content: center !important;
-  width: 100% !important;
-  max-width: 90vw !important;            /* prevents it from being too wide */
-  margin: 0 auto !important;             /* centers the whole nav list */
-  padding: 1rem 0 !important;
-}
-
-.nav-item,
-.nav-link {
-  text-align: center !important;
-  width: 100% !important;
-  max-width: 300px !important;           /* optional: limit item width so it doesn't stretch full screen */
-}
 }
 /* Gallery Cards */
 .gallery .card {
@@ -526,4 +484,3 @@ footer p {
 @media (min-width: 992px) {
   /* Nothing here – keeps original desktop styles */
 }
-
