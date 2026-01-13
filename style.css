@@ -75,29 +75,34 @@ h5.card-title {
 
 /* Mobile navbar adjustments */
 @media (max-width: 991px) {
-  .navbar .container-fluid {
+  /* 1. Set a uniform base padding for the entire navbar row */
+  .navbar > .container-fluid {
     display: flex !important;
-    flex-wrap: wrap !important; /* Allows menu to drop to new line */
+    flex-wrap: wrap !important;
     align-items: center !important;
-    justify-content: space-between !important; /* Brand Left, Toggler Right */
-    padding: 0 1rem !important;
+    justify-content: space-between !important;
+    padding-left: 20px !important;  /* Base alignment */
+    padding-right: 20px !important; /* Base alignment */
   }
 
+  /* 2. Push the brand name slightly to the right */
   .navbar-brand {
-    padding-left: 0 !important;
+    margin-left: 15px !important;  /* Pushes name away from the left edge */
     margin-right: 0 !important;
+    padding: 0 !important;
     text-align: left !important;
-    transition: all 0.3s ease;
   }
 
+  /* 3. Ensure the toggler stays flush to the right base padding */
   .navbar-toggler {
-    margin: 0 !important; /* Removes the previous auto-centering */
+    margin-right: 0 !important;
+    margin-left: 0 !important;
     order: 2 !important;
   }
 
-  /* Force menu to its own line and center content */
+  /* 4. Keep the menu centered on the new line */
   .navbar-collapse {
-    flex-basis: 100% !important; /* Forces the collapse to a new row */
+    flex-basis: 100% !important;
     order: 3 !important;
     text-align: center !important;
     margin-top: 1rem !important;
@@ -106,24 +111,17 @@ h5.card-title {
   .navbar-nav {
     align-items: center !important;
     padding-right: 0 !important;
-    gap: 1.4rem !important;
   }
 
-  /* --- ZOOM / WRAP LOGIC --- */
-  /* When the container is too narrow to fit both Brand and Toggler (Extreme zoom) */
-  @media (max-width: 380px) { 
-    .navbar .container-fluid {
-      justify-content: center !important;
-      gap: 10px;
-    }
-
+  /* Extreme zoom / narrow screen safety */
+  @media (max-width: 420px) {
     .navbar-brand {
+      margin-left: 0 !important; /* Re-center for very small screens */
       width: 100% !important;
       text-align: center !important;
     }
-
     .navbar-toggler {
-      margin: 0 auto !important;
+      margin: 0.5rem auto 0 auto !important;
     }
   }
 }
