@@ -17,7 +17,7 @@ p {
   color: rgba(17, 17, 17, 0.85);
   line-height: 1.6;
   margin-bottom: 1rem;
-  font-size: 18px; /* Standardized to 18px across all pages */
+  font-size: 18px;
   text-align: left;
 }
 
@@ -34,10 +34,11 @@ h5.card-title {
   font-size: 28px;
 }
 
-/* Navbar - Uniform across all pages */
+/* Navbar - Base */
 .navbar {
   padding: 1.5rem 0;
   background-color: #f8f7f5 !important;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
 }
 
 .navbar-brand {
@@ -45,16 +46,18 @@ h5.card-title {
   font-size: 2.1rem;
   font-weight: 500;
   letter-spacing: 0.03em;
+  color: #2c2c2c !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.08);
   padding-left: 3rem !important;
 }
 
 .navbar-nav {
   gap: 2.5rem;
-  padding-right: 3rem !important; /* Symmetric right margin to match left */
+  padding-right: 3rem !important;
 }
 
 .nav-link {
-  font-size: 1.2rem; /* Increased slightly from 1.1rem */
+  font-size: 1.2rem;
   font-weight: 500;
   padding: 0.5rem 1rem;
   transition: color 0.3s ease;
@@ -66,41 +69,57 @@ h5.card-title {
 }
 
 .nav-link.active {
-  font-weight: 500;                  /* Same weight as normal – no jump */
+  font-weight: 500;
   text-decoration: underline;
-  text-underline-offset: 6px;        /* Nice spacing from text */
-  text-decoration-color: #111;       /* Dark underline */
-  text-decoration-thickness: 1px;    /* Slightly thicker for visibility */
+  text-underline-offset: 6px;
+  text-decoration-color: #111;
+  text-decoration-thickness: 1px;
 }
 
-/* Mobile navbar adjustments */
+/* Mobile Navbar Configuration */
 @media (max-width: 991px) {
-  /* 1. Set a uniform base padding for the entire navbar row */
   .navbar > .container-fluid {
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding-left: 20px !important;  /* Base alignment */
-    padding-right: 20px !important; /* Base alignment */
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 
-  /* 2. Push the brand name slightly to the right */
   .navbar-brand {
-    margin-left: 15px !important;  /* Pushes name away from the left edge */
-    margin-right: 0 !important;
-    padding: 0 !important;
-    text-align: left !important;
+    font-size: 1.7rem !important; /* Slightly smaller font */
+    padding-left: 0 !important;
+    margin: 0 !important;
+    flex-grow: 1;
+    text-align: left;
   }
 
-  /* 3. Ensure the toggler stays flush to the right base padding */
   .navbar-toggler {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-    order: 2 !important;
+    margin: 0 !important;
+    order: 2;
+    /* Center when wrapped */
+    display: block;
   }
 
-  /* 4. Keep the menu centered on the new line */
+  /* Logic for High Zoom / Very Narrow screens */
+  /* This ensures that when the hamburger wraps, it and the brand center themselves */
+  @media (max-width: 380px) {
+    .navbar > .container-fluid {
+      flex-direction: column !important;
+      justify-content: center !important;
+    }
+    .navbar-brand {
+      text-align: center !important;
+      margin-bottom: 10px !important;
+      width: 100%;
+    }
+    .navbar-toggler {
+      margin: 0 auto !important; /* Forces hamburger to center on its line */
+    }
+  }
+
+  /* Navigation Dropdown - Always Centered Below */
   .navbar-collapse {
     flex-basis: 100% !important;
     order: 3 !important;
@@ -109,29 +128,20 @@ h5.card-title {
   }
 
   .navbar-nav {
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
     padding-right: 0 !important;
-  }
-
-  /* Extreme zoom / narrow screen safety */
-  @media (max-width: 420px) {
-    .navbar-brand {
-      margin-left: 0 !important; /* Re-center for very small screens */
-      width: 100% !important;
-      text-align: center !important;
-    }
-    .navbar-toggler {
-      margin: 0.5rem auto 0 auto !important;
-    }
+    gap: 1.5rem;
   }
 }
+
 /* Gallery Cards */
 .gallery .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #f5f3f0 !important; /* Slightly deeper beige */
-  border: 1px solid rgba(0, 0, 0, 0.05); /* Very subtle border instead of hard #e0deda */
-  border-radius: 4px;
   background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -141,83 +151,56 @@ h5.card-title {
 }
 
 .gallery .card-img-top {
-  background-color: #f5f3f0 !important; /* Slightly deeper beige */
-  padding: 0.75rem; /* Slightly more padding for breathing room */
+  background-color: #f5f3f0 !important;
+  padding: 0.75rem;
 }
 
 /* Contact Page */
-.contact p {
-  font-size: 18px; /* Standardized, no longer overriding */
-  margin-bottom: 1.5em;
+.contact.container {
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
 }
 
-/* Increase margins on contact page */
-.contact.container {
-  padding-left: 3rem !important; /* Increased horizontal padding/margins */
-  padding-right: 3rem !important;
+@media (max-width: 991px) {
+  .contact .col-md-8 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    max-width: 540px !important;
+    margin: 0 auto !important;
+  }
 }
 
 /* Footer */
 footer {
-  background-color: #f8f7f5 !important; /* Matches navbar to soften contrast */
+  background-color: #f8f7f5 !important;
   padding: 2rem 0;
   border-top: 1px solid rgba(17, 17, 17, 0.08);
 }
 
 footer p {
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   color: rgba(17, 17, 17, 0.7);
-  opacity: 1;
-  margin: 0;
-  letter-spacing: 0.02em;
   text-align: center;
+  margin: 0;
 }
 
-/* Modal */
+/* Modal Styling */
 .modal-content {
   background-color: #f4f1ec;
   border: none;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
 }
 
 .modal-header {
   border-bottom: 1px solid rgba(17, 17, 17, 0.1);
   padding: 1.5rem;
-  justify-content: center;
   position: relative;
 }
 
 .modal-header .modal-title {
-  font-family: 'Playfair Display', serif;
   font-size: 36px;
-  color: #111;
-  letter-spacing: 0.02em;
   text-align: center;
   flex-grow: 1;
-}
-
-.modal-header .btn-close {
-  opacity: 0.6;
-  position: absolute;
-  right: 1.5rem;
-}
-
-.modal-header .btn-close:hover {
-  opacity: 1;
-}
-
-.modal-body {
-  padding: 2rem;
-}
-
-.modal-body p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: rgba(17, 17, 17, 0.85);
-  margin-top: 1rem;
 }
 
 .modal-body img {
@@ -227,9 +210,7 @@ footer p {
   border-radius: 4px;
 }
 
-/* Navigation Arrows - Side positioned */
-
-/* Desktop: Subtle, fade-in on hover */
+/* Navigation Arrows */
 .nav-arrow {
   position: absolute;
   top: 50%;
@@ -240,10 +221,7 @@ footer p {
   color: #333;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  padding: 0.5rem 1.5rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   z-index: 10;
 }
 
@@ -256,20 +234,13 @@ footer p {
   transform: translateY(-50%) scale(1.1);
 }
 
-.nav-arrow.left {
-  left: 2rem;
-}
+.nav-arrow.left { left: 2rem; }
+.nav-arrow.right { right: 2rem; }
 
-.nav-arrow.right {
-  right: 2rem;
-}
-
-/* Mobile: Small arrows on white round background */
 @media (max-width: 800px) {
   .nav-arrow {
     font-size: 1.5rem;
     background: #fff;
-    color: #111;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -277,209 +248,32 @@ footer p {
     align-items: center;
     justify-content: center;
     opacity: 0.8;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    padding: 0;
   }
-
-  .nav-arrow:hover {
-    opacity: 1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  .nav-arrow.left {
-    left: 1rem;
-  }
-
-  .nav-arrow.right {
-    right: 1rem;
-  }
-
-  .position-relative .nav-arrow {
-    opacity: 0.8;
-  }
+  .nav-arrow.left { left: 1rem; }
+  .nav-arrow.right { right: 1rem; }
 }
 
-/* Responsive */
-@media (max-width: 800px) {
-  body {
-    font-size: 18px; /* Consistent, no change needed */
-  }
-
-  p {
-    font-size: 19px; /* Slightly bigger text size on mobile for all pages, including index.html */
-  }
-
-  h1 {
-    font-size: 36px;
-  }
-
-  h5.card-title {
-    font-size: 24px;
-  }
-
-  .nav-link {
-    font-size: 1.4rem; /* Already increased */
-  }
-
-  .modal-header .modal-title {
-    font-size: 28px;
-  }
-
-  .modal-body p {
-    font-size: 18px;
-  }
-
-  .modal-body .row {
-    flex-direction: column;
-  }
-}
-
-/* Fix for Chrome viewport/footer */
+/* Viewport Fixes */
 .min-vh-100 {
   min-height: 100vh;
   min-height: 100dvh;
 }
 
-@media (max-width: 800px) {
-  section.about.container {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    max-width: none !important; /* Allows full width control */
-  }
-
-  section.about .row {
-    margin-left: -20px !important;
-    margin-right: -20px !important;
-  }
-
-  section.about .col-md-6 {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-}
-
-/* Mobile portrait adjustment */
+/* Portrait Image Adjustments */
 @media (max-width: 768px) {
   .portrait-img {
-    max-height: 45vh;   /* smaller than desktop */
-    width: 100%;        /* ensure it fits nicely */
-    margin: 1.5rem 0;   /* adds breathing room */
+    max-height: 45vh;
+    width: auto;
+    margin: 1.5rem 0;
   }
 }
 
- body footer {
-  background-color: #f8f7f5 !important;
-}
-
-
-
-/* Extra side margin for mobile portrait ONLY */
-@media (max-width: 800px) {
-  .about .portrait-col {
-    padding-left: 3rem !important;   /* 48px left */
-    padding-right: 3rem !important;  /* 48px right */
-    box-sizing: border-box;
-  }
-
-  .about .portrait-img {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 50vh !important;     /* Keeps your vertical limit */
-    object-fit: contain;
-  }
-
-  /* Ensure container doesn't clip the padding */
-  .about.container {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-}
-
-.navbar {
-  border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important; /* very subtle dark line */
-  /* or even softer: */
-  /* border-bottom: 1px solid #e8e6e3 !important; */
-}
-
-.navbar-brand {
-  color: #2c2c2c !important; /* softer than pure black */
-  /* or even #333 for more elegance */
-}
-
-.navbar-brand {
-  text-shadow: 0 1px 2px rgba(0,0,0,0.08);
-}
-
-/* Fix: ensure hamburger returns to inactive state after close */
+/* Navbar Toggler Button Styling */
 .navbar-toggler {
-  border: 1px solid transparent; /* default state – no visible border */
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Reset any conflicting styles on the toggler icon */
-.navbar-toggler-icon {
-  display: inline-block !important;
-  width: 1.5em !important;
-  height: 1.5em !important;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-}
-
-/* No ring or border in inactive/closed state */
-.navbar-toggler,
-.navbar-toggler.collapsed,
-.navbar-toggler.collapsed:focus,
-.navbar-toggler.collapsed:active {
-  box-shadow: none !important;
   border: 1px solid transparent !important;
-  outline: none !important;
+  box-shadow: none !important;
 }
 
-/* Light ring ONLY when menu is open (active state) */
 .navbar-toggler:not(.collapsed) {
-  border: 2px solid rgba(0, 0, 0, 0.25) !important;     /* slightly thicker border for ring effect */
-  border-radius: 6px !important;                         /* soft rounded corners */
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08) !important;  /* very light outer glow/ring */
-  padding: 0.25rem 0.5rem !important;                    /* slight inner padding so ring doesn't touch icon */
-  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
-
-/* Keep accessibility focus ring for keyboard users */
-.navbar-toggler:focus-visible {
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;  /* blue-ish Bootstrap focus */
-  outline: none !important;
-}
-
-/* Make contact page text margins match about page on mobile only */
-@media (max-width: 991px) {
-
-  /* About page – reference values (already good) */
-  .about .col-md-6:last-child {
-    padding-left: 20px !important;    /* or whatever your current value is */
-    padding-right: 20px !important;
-  }
-
-  /* Force contact page to use the same padding/margins as about page */
-  .contact .col-md-8,
-  .contact .row.justify-content-center > div {
-    padding-left: 20px !important;    /* ← match the value from about page */
-    padding-right: 20px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    max-width: 540px !important;      /* typical narrow content width – adjust if needed */
-  }
-
-  /* Optional: if contact page still feels wider, constrain container */
-  .contact.container {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-  }
-}
-
-/* Desktop remains unchanged – no need to override anything */
-@media (min-width: 992px) {
-  /* Nothing here – keeps original desktop styles */
-}
-
