@@ -35,11 +35,12 @@ h5.card-title {
 }
 
 /* Navbar - Base */
-/* Explicitly targeting all Bootstrap background classes to ensure #f8f7f5 is used */
+/* Target the CSS variables directly to fix the "White on Mobile" issue */
 .navbar, 
-.bg-body-tertiary,
-.navbar-light {
+.bg-body-tertiary {
+  --bs-bg-opacity: 1;
   background-color: #f8f7f5 !important;
+  --bs-tertiary-bg-rgb: 248, 247, 245; /* Explicit RGB for #f8f7f5 */
   padding: 1.5rem 0;
   border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
 }
@@ -85,18 +86,16 @@ h5.card-title {
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: center !important;
-    /* This keeps them apart on one line, and centers them if they wrap */
-    justify-content: center !important; 
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    justify-content: space-between !important;
+    padding-left: 20px !important; /* Brand edge margin */
+    padding-right: 20px !important; /* Hamburger edge margin */
   }
 
   .navbar-brand {
-    font-size: 1.7rem !important;
+    font-size: 1.7rem !important; /* Slightly smaller font as requested */
     padding-left: 0 !important;
     margin: 0 !important;
-    /* Takes available space to push hamburger to the right when on one line */
-    flex: 1 1 auto; 
+    flex-grow: 1;
     text-align: left;
     white-space: nowrap;
   }
@@ -104,32 +103,27 @@ h5.card-title {
   .navbar-toggler {
     margin: 0 !important;
     order: 2;
-    flex: 0 0 auto;
+    flex-shrink: 0;
   }
 
-  /* Logic: If the container is forced to wrap (due to zoom), 
-     the brand name takes full width and centers. */
-  @media (max-width: 991px) {
-    .navbar-brand {
-      /* This ensures that IF it wraps, it takes the whole row and centers */
-      min-width: min-content; 
+  /* Logic: Only switch to centered column when the items actually wrap */
+  /* We use a very small width trigger so it doesn't happen early on zoom */
+  @media (max-width: 350px) {
+    .navbar > .container-fluid {
+      flex-direction: column !important;
+      justify-content: center !important;
     }
-  }
-
-  /* Target state where elements have wrapped due to lack of space */
-  /* We use flex-basis to force the centered column look only when crowded */
-  @media (max-width: 380px) {
     .navbar-brand {
       text-align: center !important;
-      margin-bottom: 10px !important;
-      flex: 0 0 100%;
+      margin-bottom: 12px !important;
+      width: 100%;
     }
     .navbar-toggler {
-      margin: 0 auto !important;
+      margin: 0 auto !important; /* Centers hamburger on its own line */
     }
   }
 
-  /* Navigation Dropdown - Always Centered Below */
+  /* Navigation Links Dropdown - Always Centered Below */
   .navbar-collapse {
     flex-basis: 100% !important;
     order: 3 !important;
@@ -165,12 +159,7 @@ h5.card-title {
   padding: 0.75rem;
 }
 
-/* Contact Page */
-.contact.container {
-  padding-left: 3rem !important;
-  padding-right: 3rem !important;
-}
-
+/* Contact Page Text Margins */
 @media (max-width: 991px) {
   .contact .col-md-8 {
     padding-left: 20px !important;
