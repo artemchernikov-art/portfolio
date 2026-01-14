@@ -35,12 +35,14 @@ h5.card-title {
 }
 
 /* Navbar - Base */
-/* Target the CSS variables directly to fix the "White on Mobile" issue */
+/* Target the CSS variables directly to kill the "White on Mobile" bug */
 .navbar, 
-.bg-body-tertiary {
-  --bs-bg-opacity: 1;
+.bg-body-tertiary,
+[data-bs-theme="light"] {
   background-color: #f8f7f5 !important;
-  --bs-tertiary-bg-rgb: 248, 247, 245; /* Explicit RGB for #f8f7f5 */
+  /* This forces the Bootstrap variable to match your color precisely */
+  --bs-tertiary-bg-rgb: 248, 247, 245 !important; 
+  --bs-bg-opacity: 1 !important;
   padding: 1.5rem 0;
   border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
 }
@@ -80,50 +82,48 @@ h5.card-title {
   text-decoration-thickness: 1px;
 }
 
-/* Mobile Navbar Configuration */
+/* Mobile Navbar Tweaks */
 @media (max-width: 991px) {
   .navbar > .container-fluid {
     display: flex !important;
-    flex-wrap: wrap !important;
+    flex-wrap: wrap !important; /* Allows wrapping only when no room remains */
     align-items: center !important;
     justify-content: space-between !important;
-    padding-left: 20px !important; /* Brand edge margin */
-    padding-right: 20px !important; /* Hamburger edge margin */
+    padding-left: 20px !important; /* Equal edge margin */
+    padding-right: 20px !important; /* Equal edge margin */
   }
 
   .navbar-brand {
-    font-size: 1.7rem !important; /* Slightly smaller font as requested */
+    font-size: 1.7rem !important; /* Slightly smaller mobile font */
     padding-left: 0 !important;
     margin: 0 !important;
-    flex-grow: 1;
     text-align: left;
     white-space: nowrap;
+    flex: 0 1 auto;
   }
 
   .navbar-toggler {
     margin: 0 !important;
     order: 2;
-    flex-shrink: 0;
+    flex: 0 0 auto;
   }
 
-  /* Logic: Only switch to centered column when the items actually wrap */
-  /* We use a very small width trigger so it doesn't happen early on zoom */
-  @media (max-width: 350px) {
+  /* Centering Logic: Only triggers when the space is physically exhausted */
+  @media (max-width: 340px) {
     .navbar > .container-fluid {
-      flex-direction: column !important;
       justify-content: center !important;
     }
     .navbar-brand {
+      flex: 0 0 100% !important;
       text-align: center !important;
-      margin-bottom: 12px !important;
-      width: 100%;
+      margin-bottom: 10px !important;
     }
     .navbar-toggler {
-      margin: 0 auto !important; /* Centers hamburger on its own line */
+      margin: 0 auto !important; /* Centers hamburger on 2nd line */
     }
   }
 
-  /* Navigation Links Dropdown - Always Centered Below */
+  /* Nav Menu Dropdown - Centered below */
   .navbar-collapse {
     flex-basis: 100% !important;
     order: 3 !important;
@@ -159,7 +159,7 @@ h5.card-title {
   padding: 0.75rem;
 }
 
-/* Contact Page Text Margins */
+/* Contact Page Margins */
 @media (max-width: 991px) {
   .contact .col-md-8 {
     padding-left: 20px !important;
