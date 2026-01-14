@@ -36,15 +36,20 @@ h5.card-title {
 
 /* Navbar - Base */
 /* Target the CSS variables directly to kill the "White on Mobile" bug */
+/* Force the specific beige color by overwriting the Bootstrap variable */
 .navbar, 
-.bg-body-tertiary,
-[data-bs-theme="light"] {
+.bg-body-tertiary {
   background-color: #f8f7f5 !important;
-  /* This forces the Bootstrap variable to match your color precisely */
-  --bs-tertiary-bg-rgb: 248, 247, 245 !important; 
+  /* This converts #f8f7f5 into the RGB format Bootstrap expects */
+  --bs-tertiary-bg-rgb: 248, 247, 245 !important;
   --bs-bg-opacity: 1 !important;
   padding: 1.5rem 0;
   border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
+}
+
+/* Also ensure the brand name doesn't have its own background */
+.navbar-brand {
+  background: transparent !important;
 }
 
 .navbar-brand {
