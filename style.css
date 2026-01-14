@@ -35,9 +35,12 @@ h5.card-title {
 }
 
 /* Navbar - Base */
-.navbar {
-  padding: 1.5rem 0;
+/* Explicitly targeting all Bootstrap background classes to ensure #f8f7f5 is used */
+.navbar, 
+.bg-body-tertiary,
+.navbar-light {
   background-color: #f8f7f5 !important;
+  padding: 1.5rem 0;
   border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
 }
 
@@ -82,40 +85,47 @@ h5.card-title {
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: center !important;
-    justify-content: space-between !important;
+    /* This keeps them apart on one line, and centers them if they wrap */
+    justify-content: center !important; 
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
 
   .navbar-brand {
-    font-size: 1.7rem !important; /* Slightly smaller font */
+    font-size: 1.7rem !important;
     padding-left: 0 !important;
     margin: 0 !important;
-    flex-grow: 1;
+    /* Takes available space to push hamburger to the right when on one line */
+    flex: 1 1 auto; 
     text-align: left;
+    white-space: nowrap;
   }
 
   .navbar-toggler {
     margin: 0 !important;
     order: 2;
-    /* Center when wrapped */
-    display: block;
+    flex: 0 0 auto;
   }
 
-  /* Logic for High Zoom / Very Narrow screens */
-  /* This ensures that when the hamburger wraps, it and the brand center themselves */
-  @media (max-width: 380px) {
-    .navbar > .container-fluid {
-      flex-direction: column !important;
-      justify-content: center !important;
+  /* Logic: If the container is forced to wrap (due to zoom), 
+     the brand name takes full width and centers. */
+  @media (max-width: 991px) {
+    .navbar-brand {
+      /* This ensures that IF it wraps, it takes the whole row and centers */
+      min-width: min-content; 
     }
+  }
+
+  /* Target state where elements have wrapped due to lack of space */
+  /* We use flex-basis to force the centered column look only when crowded */
+  @media (max-width: 380px) {
     .navbar-brand {
       text-align: center !important;
       margin-bottom: 10px !important;
-      width: 100%;
+      flex: 0 0 100%;
     }
     .navbar-toggler {
-      margin: 0 auto !important; /* Forces hamburger to center on its line */
+      margin: 0 auto !important;
     }
   }
 
